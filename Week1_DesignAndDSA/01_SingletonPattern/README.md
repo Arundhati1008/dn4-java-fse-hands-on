@@ -1,8 +1,24 @@
-# Exercise 1 – Singleton Pattern
+# Exercise 1 – Implementing the Singleton Pattern
 
-This task implements the Singleton Design Pattern in Java for a Logger class to ensure only one instance exists.
+##  Objective:
+Ensure that the Logger utility class is a singleton — only one instance should exist during the entire lifecycle of the application.
 
-## 🛠️ Files to include:
-- Logger.java
-- Main.java
-- Sample Output (screenshot if needed)
+## Classes Implemented:
+   -`Logger.java` – Implements the Singleton Pattern using:
+  - Private constructor
+  - Static private instance variable
+  - Public static `getInstance()` method
+  - `Main.java` – Verifies that only one `Logger` instance is used and            performs logging
+
+## Output:
+Logger Initialized
+Log: First message
+Log: Second message
+Same Logger instance!
+
+
+## Files Included:
+- `Logger.java`
+- `Main.java`
+- `output.png` 
+- `README.md`
