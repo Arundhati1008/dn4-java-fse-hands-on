@@ -17,12 +17,13 @@ Contains hands-on tasks for PL/SQL basics.
 - 
   ## Stored Procedures
 - Procedure 1: `ProcessMonthlyInterest`
-- Adds **1% interest** to accounts where `AccountType = 'Savings'`.
-- Updates balance and `LastModified` timestamp
--Procedure 2: `UpdateEmployeeBonus`
+- Adds **1% interest** to accounts where `AccountType = 'Savings'
+- Updates balance and `LastModified` timestamp.
+
+ -Procedure 2: `UpdateEmployeeBonus`
 - Adds a **bonus percent** to employees in a selected department.
 - Procedure 3: TransferFunds
-Transfers amount from one account to another if balance is sufficient.
+  Transfers amount from one account to another if balance is sufficient.
 
 ## How to Run
 .Open https://livesql.oracle.com
