@@ -4,8 +4,9 @@ Contains hands-on tasks for PL/SQL basics.
 
 ## Tasks:
 
-1. Control Structures
-  Scenario 1: Age-Based Bonus (Over 60)
+##  Control Structures
+
+- Scenario 1: Age-Based Bonus (Over 60)
 - Add a **1% bonus** to the balance of customers who are **older than 60 years**.
 - Age is calculated using `MONTHS_BETWEEN(SYSDATE, DOB)/12`.
 - Scenario 2: VIP Status by Balance
@@ -14,11 +15,11 @@ Contains hands-on tasks for PL/SQL basics.
 - Send reminders for loans **due within 30 days** from current date.
 
 - 
-2. Stored Procedures
- Procedure 1: `ProcessMonthlyInterest`
+  ## Stored Procedures
+- Procedure 1: `ProcessMonthlyInterest`
 - Adds **1% interest** to accounts where `AccountType = 'Savings'`.
 - Updates balance and `LastModified` timestamp
-Procedure 2: `UpdateEmployeeBonus`
+-Procedure 2: `UpdateEmployeeBonus`
 - Adds a **bonus percent** to employees in a selected department.
 - Procedure 3: TransferFunds
 Transfers amount from one account to another if balance is sufficient.
