@@ -118,7 +118,7 @@ BEGIN
             LastModified = SYSDATE
         WHERE AccountID = to_account;
 
-        DBMS_OUTPUT.PUT_LINE(' rupees' || amount || ' transferred from Account ' || from_account || ' to Account ' || to_account);
+        DBMS_OUTPUT.PUT_LINE(' RS. ' || amount || ' transferred from Account ' || from_account || ' to Account ' || to_account);
     END IF;
 END;
 /
