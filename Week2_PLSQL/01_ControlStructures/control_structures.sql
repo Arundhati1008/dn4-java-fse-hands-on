@@ -1,77 +1,91 @@
--- Setup: Create and populate CUSTOMERS table
-
+                        --#schema creation
 CREATE TABLE Customers (
-    CustomerID NUMBER,
-    Name VARCHAR2(50),
-    Age NUMBER,
+    CustomerID NUMBER PRIMARY KEY,
+    Name VARCHAR2(100),
+    DOB DATE,
     Balance NUMBER,
-    InterestRate NUMBER,
-    IsVIP VARCHAR2(10)
+    LastModified DATE
 );
-
--- Insert sample customers
-INSERT INTO Customers VALUES (1, 'Aditi', 65, 12000, 8.5, 'FALSE');
-INSERT INTO Customers VALUES (2, 'Rahul', 45, 8000, 9.0, 'FALSE');
-INSERT INTO Customers VALUES (3, 'Sneha', 70, 15000, 7.5, 'FALSE');
-COMMIT;
-
-
 
 CREATE TABLE Loans (
-    LoanID NUMBER,
+    LoanID NUMBER PRIMARY KEY,
     CustomerID NUMBER,
-    LoanDueDate DATE
+    LoanAmount NUMBER,
+    InterestRate NUMBER,
+    StartDate DATE,
+    EndDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
 
 
-INSERT INTO Loans VALUES (201, 1, SYSDATE + 10);  -- due in 10 days
-INSERT INTO Loans VALUES (202, 2, SYSDATE + 40);  -- due in 40 days (not included)
-INSERT INTO Loans VALUES (203, 3, SYSDATE + 5);   -- due in 5 days
+
+-- Customers: some over and under 60 years old
+INSERT INTO Customers (CustomerID, Name, DOB, Balance, LastModified)
+VALUES (1, 'John Doe', TO_DATE('1950-05-15', 'YYYY-MM-DD'), 12000, SYSDATE); -- age ~74
+
+INSERT INTO Customers (CustomerID, Name, DOB, Balance, LastModified)
+VALUES (2, 'Jane Smith', TO_DATE('1995-07-20', 'YYYY-MM-DD'), 8000, SYSDATE); -- age ~29
+
+INSERT INTO Customers (CustomerID, Name, DOB, Balance, LastModified)
+VALUES (3, 'Sneha Roy', TO_DATE('1955-03-10', 'YYYY-MM-DD'), 15000, SYSDATE); -- age ~69
+
+-- Loans
+INSERT INTO Loans (LoanID, CustomerID, LoanAmount, InterestRate, StartDate, EndDate)
+VALUES (1, 1, 5000, 6.5, SYSDATE, SYSDATE + 15); -- due in 15 days
+
+INSERT INTO Loans (LoanID, CustomerID, LoanAmount, InterestRate, StartDate, EndDate)
+VALUES (2, 2, 10000, 7.0, SYSDATE, SYSDATE + 45); -- due after 45 days
+
+INSERT INTO Loans (LoanID, CustomerID, LoanAmount, InterestRate, StartDate, EndDate)
+VALUES (3, 3, 8000, 6.0, SYSDATE, SYSDATE + 5); -- due in 5 days
+
 COMMIT;
 
 --------------------------------------------------------------------------------
--- Scenario 1: Apply 1% discount to interest for customers over 60 years old
+--  Scenario 1: Apply 1% discount for customers older than 60
 --------------------------------------------------------------------------------
+
 BEGIN
-    FOR rec IN (SELECT CustomerID, Age, InterestRate FROM Customers) LOOP
+    FOR rec IN (
+        SELECT CustomerID, ROUND(MONTHS_BETWEEN(SYSDATE, DOB)/12) AS Age
+        FROM Customers
+    ) LOOP
         IF rec.Age > 60 THEN
             UPDATE Customers
-            SET InterestRate = InterestRate - 1
+            SET Balance = Balance + (Balance * 0.01), -- treat "discount" as interest bonus
+                LastModified = SYSDATE
             WHERE CustomerID = rec.CustomerID;
 
-            DBMS_OUTPUT.PUT_LINE(' Discount applied to Customer ID: ' || rec.CustomerID);
+            DBMS_OUTPUT.PUT_LINE(' 1% bonus added for Customer ID: ' || rec.CustomerID || ' (Age: ' || rec.Age || ')');
         END IF;
     END LOOP;
 END;
 /
 
 --------------------------------------------------------------------------------
--- Scenario 2: Promote customers to VIP if balance > 10,000
+--  Scenario 2: Promote to VIP if balance > ₹10,000
 --------------------------------------------------------------------------------
+
 BEGIN
     FOR rec IN (SELECT CustomerID, Balance FROM Customers) LOOP
         IF rec.Balance > 10000 THEN
-            UPDATE Customers
-            SET IsVIP = 'TRUE'
-            WHERE CustomerID = rec.CustomerID;
-
-            DBMS_OUTPUT.PUT_LINE(' Customer ID ' || rec.CustomerID || ' promoted to VIP');
+            DBMS_OUTPUT.PUT_LINE(' Customer ID ' || rec.CustomerID || ' is eligible for VIP (Balance: ₹' || rec.Balance || ')');
         END IF;
     END LOOP;
 END;
 /
 
 --------------------------------------------------------------------------------
--- Scenario 3: Send reminders for loans due within the next 30 days
+--  Scenario 3: Send reminders for loans due in next 30 days
 --------------------------------------------------------------------------------
+
 BEGIN
     FOR loan IN (
-        SELECT CustomerID, LoanDueDate
+        SELECT CustomerID, LoanID, EndDate
         FROM Loans
-        WHERE LoanDueDate <= SYSDATE + 30
+        WHERE EndDate <= SYSDATE + 30
     ) LOOP
-        DBMS_OUTPUT.PUT_LINE(' Reminder: Loan due for Customer ID ' || loan.CustomerID ||
-                             ' on ' || TO_CHAR(loan.LoanDueDate, 'DD-Mon-YYYY'));
+        DBMS_OUTPUT.PUT_LINE(' Reminder: Loan ID ' || loan.LoanID || ' due for Customer ID ' || loan.CustomerID || ' on ' || TO_CHAR(loan.EndDate, 'DD-Mon-YYYY'));
     END LOOP;
 END;
 /
