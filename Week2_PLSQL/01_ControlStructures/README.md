@@ -6,7 +6,7 @@ This folder contains hands-on exercises for **Control Structures in PL/SQL** as 
 
 ---
 
-## 📌 Exercise 1: Real-World Banking Scenarios
+##  Exercise 1: Real-World Banking Scenarios
 
 ###  Scenario 1: Age-Based Interest Discount
 - **Objective**: Apply a 1% discount on loan interest rates for customers above 60 years old.
