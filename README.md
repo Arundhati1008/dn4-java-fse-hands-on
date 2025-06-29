@@ -4,3 +4,4 @@ Welcome to my GitHub repository for the **Digital Nurture
 
 Name- Arundhati Thakur 
 superset id - 6386040
+email - thakurarundhati08@gmail.com
