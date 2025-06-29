@@ -40,7 +40,6 @@ public class AssertionsTest {
 
 Run Instructions
 bash
-Copy code
 mvn clean test
 
 
