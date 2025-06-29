@@ -1,4 +1,3 @@
-# Task: Control Structures in PL/SQL
 
 # Week 2 – PL/SQL Programming (Control Structures)
 
