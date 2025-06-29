@@ -12,7 +12,6 @@ Implement tests using Arrange-Act-Assert pattern, with setup and teardown method
 ---
 Run Instructions
 bash
-Copy code
 mvn clean test
 
 
