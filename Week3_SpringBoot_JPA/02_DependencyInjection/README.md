@@ -1,8 +1,5 @@
-# Task: Dependency Injection
+## Exercise 2 – Implementing Dependency Injection
 
-Implement dependency injection in Spring using:
-- Constructor injection
-- Setter injection
+This exercise shows how to inject `BookRepository` into `BookService` using Spring’s setter-based DI through `applicationContext.xml`.
 
-## Bonus:
-Use interfaces and inject multiple implementations if possible.
+The same setup demonstrates how Spring’s IoC container manages and wires dependencies using XML configuration in exercise 5.
