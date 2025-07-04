@@ -1,9 +1,9 @@
-# Task: Create Spring Boot Project with Maven
+#  Exercise 4: Creating and Configuring a Maven Project
 
-- Initialize a Maven project
-- Add Spring Boot dependencies
-- Create a simple `@RestController` endpoint
+### Objective:
+Set up a Maven-based Spring project for a Library Management system with Spring dependencies and build plugins.
 
-## Files:
-- pom.xml
-- Application.java
+---
+
+
+
