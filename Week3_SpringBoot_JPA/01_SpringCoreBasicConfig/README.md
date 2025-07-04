@@ -13,6 +13,11 @@ Use Spring Framework to:
 - Build a simple layered application (Service & Repository)
 
 ---
+ How to Run
+Open the project in IntelliJ
 
+Ensure applicationContext.xml is in src/main/resources
+
+Run MainApp.java
 
 
