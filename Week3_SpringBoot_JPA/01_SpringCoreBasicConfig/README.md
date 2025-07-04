@@ -1,7 +1,11 @@
 
-#  Library Management – Spring Core (XML Configuration)
+# Exercise1- Library Management – Spring Core (XML Configuration) &            Exercise5-   Configuring Spring IoC Container
 
-This project demonstrates a simple Spring Core application using **XML-based configuration**. It's created as part of the **Cognizant Digital Nurture 4.0 – Java FSE Deep Skilling Program (Week 3)**.
+  
+
+This project demonstrates a simple Spring Core application using **XML-based configuration**with setter-based dependency injection.
+
+Beans were defined in `applicationContext.xml`, and `BookService` received `BookRepository` through a setter method.  It's created as part of the **Cognizant Digital Nurture 4.0 – Java FSE Deep Skilling Program (Week 3)**.
 
 ---
 
