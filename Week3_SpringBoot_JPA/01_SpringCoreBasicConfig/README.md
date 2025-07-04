@@ -13,11 +13,21 @@ Use Spring Framework to:
 - Build a simple layered application (Service & Repository)
 
 ---
+Technologies Used
+
+- Java 8
+- Spring Framework (Core)
+- XML-based bean configuration
+- Maven for dependency management
+- IntelliJ IDEA (or VS Code)
+
+---
  How to Run
-Open the project in IntelliJ
+ 
+-Open the project in IntelliJ
 
-Ensure applicationContext.xml is in src/main/resources
+-Ensure applicationContext.xml is in src/main/resources
 
-Run MainApp.java
+-Run MainApp.java
 
 
