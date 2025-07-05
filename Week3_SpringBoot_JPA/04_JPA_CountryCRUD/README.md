@@ -1,4 +1,4 @@
-# Task: JPA – Country Management App (Spring Boot + JPA + MySQL) & Country Entity CRUD Operations
+# Task: JPA – Country Management App (Spring Boot + JPA + MySQL) 
 
 Features
 
