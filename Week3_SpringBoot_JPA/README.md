@@ -2,17 +2,15 @@
 
 This week covers key Spring technologies:
 
-## 🔹 Spring Core + Maven
+## Spring Core + Maven
 - Basic Spring configuration using IoC container
 - Dependency injection (constructor & setter)
 - Creating a Maven-based Spring Boot project
 
-## 🔸 Spring Data JPA + Hibernate
+##  Spring Data JPA + Hibernate
 - CRUD using JPA with Spring Boot
-- JPA query methods
-- O/R Mapping
-- Writing HQL and native queries
+- Difference between JPA Hibernate SpringData
 
 Each task folder contains:
 - `Code/` folder with Java + config files
-- A sub-README for explanation
+-Readme for explaination
