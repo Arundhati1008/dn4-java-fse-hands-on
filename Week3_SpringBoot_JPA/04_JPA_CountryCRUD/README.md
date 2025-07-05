@@ -1,7 +1,8 @@
-# Task: JPA – Country Entity CRUD Operations
+# Task: JPA – Country Management App (Spring Boot + JPA + MySQL) & Country Entity CRUD Operations
 
-Use Spring Data JPA to:
-- Create a `Country` entity
-- Implement CRUD via service + repository
+Features
 
-✅ Include database config (H2 or MySQL)
+- Connects to MySQL using Spring JPA
+- Fetches a list of countries from the database
+- Uses REST API via Spring Web
+- Logs SQL queries and application behavior for learning purposes
