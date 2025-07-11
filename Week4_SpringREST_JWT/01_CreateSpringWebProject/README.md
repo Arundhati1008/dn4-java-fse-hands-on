@@ -1,7 +1,19 @@
-# Task: Create Spring Web Project Using Maven
+# Spring Learn - Hands-On 1
 
-Initialize a basic Spring Boot 3 project using Maven.
+This project is created as part of Cognizant DN 4.0 Java FSE training - Hands-On 1.
 
-✅ Must include:
-- spring-boot-starter-web dependency
-- a sample controller
+## Project Setup
+
+- Created using [https://start.spring.io](https://start.spring.io)
+- Group: `com.cognizant`
+- Artifact: `spring-learn`
+- Dependencies: Spring Web, Spring Boot DevTools
+
+## Build Instructions
+
+1. Open terminal in project root folder.
+2. Run:
+
+```bash
+mvn clean package
+
