@@ -4,7 +4,6 @@ public class Country {
     private String code;
     private String name;
 
-    // Constructors
     public Country() {}
 
     public Country(String code, String name) {
@@ -12,7 +11,6 @@ public class Country {
         this.name = name;
     }
 
-    // Getters and Setters
     public String getCode() {
         return code;
     }
