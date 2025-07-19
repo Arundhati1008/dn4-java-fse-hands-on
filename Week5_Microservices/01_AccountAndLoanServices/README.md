@@ -10,5 +10,4 @@ Create two independent microservices:
    - GET /loan  
    - Return dummy loan details
 
-✅ Use `application.properties` to set port and name
-✅ Test with Postman or browser
+
