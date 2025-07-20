@@ -1,8 +1,7 @@
-# Task: Eureka Discovery Server
+# Cognizant Digital Nurture 4.0 – Java Full Stack Engineer (FSE) | Hands-On Submissions
 
-Set up a Eureka Discovery Server.
+Welcome to my GitHub repository for the **Digital Nurture
 
-✅ Steps:
-- Create a Spring Boot app with `spring-cloud-starter-netflix-eureka-server`
-- Annotate with `@EnableEurekaServer`
-- Register `Account` and `Loan` microservices as clients using `@EnableEurekaClient`
+Name- Arundhati Thakur 
+superset id - 6386040
+email - thakurarundhati08@gmail.com
