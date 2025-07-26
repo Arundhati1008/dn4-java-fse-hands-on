@@ -36,7 +36,13 @@ class Posts extends React.Component {
       <div>
         <h2>Blog Posts</h2>
         {this.state.posts.map((post) => (
-          <Post key={post.id} title={post.title} body={post.body} />
+          <Post 
+          key={post.id} 
+          title={post.title}
+           body={post.body} 
+           id={post.id}
+           userId={post.userId}
+           />
         ))}
       </div>
     );
