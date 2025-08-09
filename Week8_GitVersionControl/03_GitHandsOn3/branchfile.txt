@@ -1,1 +1,1 @@
-This is my branch test file
+This is my Git branching and merging hands-on work.
